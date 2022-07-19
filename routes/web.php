@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front.templates.home');
-});
-Route::get('/about', function () {
-    return view('front.templates.about');
-});
-Route::get('/index', function () {
-    return view('front.templates.index');
-});
+Route::get('/', 'Controll@home')->name('home');
+Route::get('/about', 'Controll@about')->name('about');
+Route::get('/contacts', 'Controll@contacts')->name('contacts');
 
-Route::resource('/comics', 'Controll');
+// Route::get('/comics', 'ComicsControll@index')->name('comics.index');
+// Route::post('/comics', 'ComicsControll@store')->name('comics.store');
+
+
+Route::resource('/comics', 'ComicsControll');
